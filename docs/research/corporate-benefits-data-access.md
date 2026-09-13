@@ -381,3 +381,14 @@ None of this was tested with an account (per the rules). To finish the picture:
   <https://www.mydealz.de/diskussion/corporate-benefits-neue-nutzungsbedingungen-2424876>
 - Wayback CDX — retired tenant with `generic-link` examples:
   `http://web.archive.org/cdx/search/cdx?url=corporatebenefits.mitarbeiterangebote.de*`
+
+## Logged-in capture (2026-09-13, sanitized)
+
+Session made with a remote browser on the agent host (user signed in). Raw captures stay local only.
+
+- Offers require accepting the disclaimer overlay first: `#cbg3-overlay--disclaimer`, hidden `disclaimerAccept=1`, newsletter checkbox `platformData[disclaimerNewsletter]` (left off), submit `cbg3-submit` ("Akzeptieren"). Acceptance is per account/session.
+- Search is by **brand name**, not domain: `GET /search?s=<name>`. Results in `.cbg3-list-item[data-id]` with `h3` title and `.cbg3-list-item--discount` badge (e.g. `17% RABATT`); item link `/offer/<id>/cat/<catid>`.
+- Offer detail `/offer/<id>/cat/<catid>` shows title, discount badge, description, FAQ/conditions prose, and a confidentiality note.
+- Outbound link lives in `#saleoptions`: a button whose `data-href` is an **opaque tracked deeplink** (observed pointing at a voucher-fulfilment partner), opened in an iframe overlay (`data-overlay-type="external-link-i-frame"`). The merchant domain appears only in prose — no structured domain field. Hostname matching therefore needs a curated name→domain map.
+- Home feed cards carry a discount chip (`10% Rabatt`) and a `ZUM ANGEBOT` link.
+- Not observed: rate limits, explicit validity dates, fixed-amount offers.
