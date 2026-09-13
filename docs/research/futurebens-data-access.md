@@ -292,3 +292,13 @@ die angegebene E-Mail-Adresse gesendet"). **[verified]**
   ID.me Shop: <https://chromewebstore.google.com/detail/idme-shop-discover-commun/iifmmpcbkkjplbamhfohikljoogdbadp>
 - GitHub searches via `gh search code|repos|issues futurebens` (results: job ads, résumés,
   citation corpus; no tooling)
+
+## Logged-in capture (2026-09-13, sanitized)
+
+Session made with a remote browser on the agent host (user signed in). Raw captures stay local only.
+
+- Session: MemberStack JWT cookie `__ms` (RS256; claims member id / email / site id; ~7-day expiry = iat + 604800s). Page globals: `$memberstack`, `MemberStack`, `getFirstVoucherForMember`; `$memberstackDom` is **not** defined.
+- Company portal is `/companies/<slug>`; the logged-in `/dashboard` is a company-branded grid of brand cards (name, badge such as `-50%` or `75€ Bonus`, optional "Pioneer" tag) linking to `/brands/<slug>`.
+- Brand page hidden inputs: `Discount Brand ID`, `Discount Brand Name`, `Brand Website URL`, `Brand Cover Image URL`, `Discount Code`, `Memberstack ID`, `Discount Used Number`; plus conditions text and a "Request discount" submit flow.
+- For the observed brand the logged-in `Discount Code` was identical to the code already present in the **public** page HTML (`#discount-code2` / `data-clipboard-text`) — no company-specific code difference found.
+- Anonymous offer discovery is possible from public brand pages (code + `Brand Website URL` + conditions); login adds company context only. The extension should still read within the user's own session because the ToS forbids third-party access/republishing.
