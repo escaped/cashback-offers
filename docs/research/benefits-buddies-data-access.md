@@ -236,3 +236,7 @@ curl -s https://benefitbuddy.de/robots.txt
 ```
 
 No credentials were used and no personal data captured. This note is the only artifact of the research.
+
+## Update (2026-09-13): app-only confirmed by user
+
+The user's "Benefits Buddies" access is app-only — there is no web portal or logged-in web session to integrate. Per the map, the fallback for this platform is **cashback-optimizer.de** (discovery/fallback only, never as authority).
