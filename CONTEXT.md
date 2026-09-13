@@ -29,5 +29,5 @@ A merchant match made on normalized name alone, rendered muted and never counted
 _Avoid_: fuzzy match, guess
 
 **Platform session**:
-The user's logged-in session on a gated platform (Corporate Benefits, FutureBens), read in their own browser. Credentials are never stored; when the session is absent or expired, the panel says "Not logged in" and links the platform login.
+The user's logged-in session on a gated platform (in v1, Corporate Benefits only), read in their own browser. Credentials are never stored; when the session is absent or expired, the panel says "Not logged in" and links the platform login.
 _Avoid_: login, cookie
